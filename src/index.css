@@ -8,35 +8,70 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    /* Civic Connect Design System - Light Mode */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 15% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 15% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 15% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Civic Blue Primary */
+    --primary: 217 91% 43%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 217 91% 38%;
+    
+    /* Government Green Secondary */
+    --secondary: 142 76% 36%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-hover: 142 76% 31%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 45%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 217 32% 17%;
+    --accent-foreground: 220 9% 97%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 91% 43%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --radius: 0.75rem;
 
-    --radius: 0.5rem;
+    /* Civic Connect Custom Tokens */
+    --civic-blue: 217 91% 43%;
+    --civic-blue-light: 217 91% 95%;
+    --civic-blue-dark: 217 91% 25%;
+    
+    --government-green: 142 76% 36%;
+    --government-green-light: 142 76% 95%;
+    --government-green-dark: 142 76% 20%;
+    
+    --warning-orange: 38 92% 50%;
+    --warning-orange-light: 38 92% 95%;
+    
+    --status-pending: 38 92% 50%;
+    --status-processing: 217 91% 43%;
+    --status-completed: 142 76% 36%;
+    
+    /* Gradients */
+    --gradient-civic: linear-gradient(135deg, hsl(var(--civic-blue)), hsl(var(--government-green)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--civic-blue)) 0%, hsl(var(--civic-blue-dark)) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 100%);
+    
+    /* Shadows */
+    --shadow-civic: 0 4px 12px hsl(var(--civic-blue) / 0.15);
+    --shadow-card: 0 2px 8px hsl(220 15% 20% / 0.08);
+    --shadow-button: 0 2px 4px hsl(var(--civic-blue) / 0.2);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 

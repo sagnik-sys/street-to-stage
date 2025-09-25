@@ -22,10 +22,12 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          hover: "hsl(var(--primary-hover))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+          hover: "hsl(var(--secondary-hover))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -46,6 +48,26 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        // Civic Connect Design Tokens
+        civic: {
+          blue: "hsl(var(--civic-blue))",
+          "blue-light": "hsl(var(--civic-blue-light))",
+          "blue-dark": "hsl(var(--civic-blue-dark))",
+        },
+        government: {
+          green: "hsl(var(--government-green))",
+          "green-light": "hsl(var(--government-green-light))",
+          "green-dark": "hsl(var(--government-green-dark))",
+        },
+        warning: {
+          orange: "hsl(var(--warning-orange))",
+          "orange-light": "hsl(var(--warning-orange-light))",
+        },
+        status: {
+          pending: "hsl(var(--status-pending))",
+          processing: "hsl(var(--status-processing))",
+          completed: "hsl(var(--status-completed))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
