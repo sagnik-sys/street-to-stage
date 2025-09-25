@@ -14,7 +14,156 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          created_at: string | null
+          department: Database["public"]["Enums"]["department_type"] | null
+          email: string
+          full_name: string | null
+          id: string
+          role: Database["public"]["Enums"]["user_role"]
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          department?: Database["public"]["Enums"]["department_type"] | null
+          email: string
+          full_name?: string | null
+          id: string
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          department?: Database["public"]["Enums"]["department_type"] | null
+          email?: string
+          full_name?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      report_history: {
+        Row: {
+          changed_by: string
+          created_at: string | null
+          id: string
+          new_status: Database["public"]["Enums"]["report_status"]
+          notes: string | null
+          old_status: Database["public"]["Enums"]["report_status"] | null
+          report_id: string
+        }
+        Insert: {
+          changed_by: string
+          created_at?: string | null
+          id?: string
+          new_status: Database["public"]["Enums"]["report_status"]
+          notes?: string | null
+          old_status?: Database["public"]["Enums"]["report_status"] | null
+          report_id: string
+        }
+        Update: {
+          changed_by?: string
+          created_at?: string | null
+          id?: string
+          new_status?: Database["public"]["Enums"]["report_status"]
+          notes?: string | null
+          old_status?: Database["public"]["Enums"]["report_status"] | null
+          report_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "report_history_changed_by_fkey"
+            columns: ["changed_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "report_history_report_id_fkey"
+            columns: ["report_id"]
+            isOneToOne: false
+            referencedRelation: "reports"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      reports: {
+        Row: {
+          assigned_admin_id: string | null
+          created_at: string | null
+          department: Database["public"]["Enums"]["department_type"]
+          description: string
+          id: string
+          issue_type: string
+          location_address: string | null
+          location_lat: number | null
+          location_lng: number | null
+          media_urls: string[] | null
+          processing_notes: string | null
+          resolved_at: string | null
+          status: Database["public"]["Enums"]["report_status"] | null
+          title: string
+          updated_at: string | null
+          user_id: string
+          voice_note_url: string | null
+        }
+        Insert: {
+          assigned_admin_id?: string | null
+          created_at?: string | null
+          department: Database["public"]["Enums"]["department_type"]
+          description: string
+          id?: string
+          issue_type: string
+          location_address?: string | null
+          location_lat?: number | null
+          location_lng?: number | null
+          media_urls?: string[] | null
+          processing_notes?: string | null
+          resolved_at?: string | null
+          status?: Database["public"]["Enums"]["report_status"] | null
+          title: string
+          updated_at?: string | null
+          user_id: string
+          voice_note_url?: string | null
+        }
+        Update: {
+          assigned_admin_id?: string | null
+          created_at?: string | null
+          department?: Database["public"]["Enums"]["department_type"]
+          description?: string
+          id?: string
+          issue_type?: string
+          location_address?: string | null
+          location_lat?: number | null
+          location_lng?: number | null
+          media_urls?: string[] | null
+          processing_notes?: string | null
+          resolved_at?: string | null
+          status?: Database["public"]["Enums"]["report_status"] | null
+          title?: string
+          updated_at?: string | null
+          user_id?: string
+          voice_note_url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reports_assigned_admin_id_fkey"
+            columns: ["assigned_admin_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "reports_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +172,15 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      department_type:
+        | "electricity"
+        | "pwd"
+        | "roads_transport"
+        | "garbage_sanitation"
+        | "water_supply"
+        | "others"
+      report_status: "pending" | "processing" | "completed" | "forwarded"
+      user_role: "user" | "admin" | "superadmin"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +307,17 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      department_type: [
+        "electricity",
+        "pwd",
+        "roads_transport",
+        "garbage_sanitation",
+        "water_supply",
+        "others",
+      ],
+      report_status: ["pending", "processing", "completed", "forwarded"],
+      user_role: ["user", "admin", "superadmin"],
+    },
   },
 } as const
